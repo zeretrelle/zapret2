@@ -296,5 +296,5 @@ v0.9.4.3
 1.0
 
 * zapret-lib,zapret-antidpi: delay parameter in "send" desync function
-* zapret-lib: fix oob urp=0 case in rawsend_dissect_segmented
+* zapret-lib: fix oob urp=b case in rawsend_dissect_segmented
 * nfqws2, zapret-lib: (LUA_COMPAT_VER=6) fix wrong spelling : WRITEABLE -> WRITABLE
