@@ -121,9 +121,13 @@ again:
 			if (!TimerPoolRunTimer(elem))
 				del = "timer: '%s' deleted because of error\n";
 
-			// timer function could delete the timer or recreate with the same name
-			p = TimerPoolSearch(*pp, name);
-			if (p==elem && p->n==n)
+			if (*dirty)
+			{
+				// timer function could delete the timer or recreate with the same name
+				p = TimerPoolSearch(*pp, name);
+				if (p!=elem || p->n!=n) elem = NULL; // timer deleted or recreated with the same name (but another 'n')
+			}
+			if (elem)
 			{
 				if (!del && elem->oneshot)
 					del = "timer: '%s' deleted because of oneshot\n";
