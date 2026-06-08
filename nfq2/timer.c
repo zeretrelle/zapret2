@@ -93,8 +93,11 @@ uint64_t TimerPoolNext(const timer_pool *p, bool *dirty)
 }
 uint64_t TimerPoolRun(timer_pool **pp, bool *dirty, uint64_t bt)
 {
-	*dirty = false;
-	if (!*pp) return 0; // no timers
+	if (!*pp)
+	{
+		*dirty = false;
+		return 0; // no timers
+	}
 
 	timer_pool *elem, *tmp, *p;
 	char *name;
@@ -146,6 +149,6 @@ again:
 		}
 		if (elem && (elem->bt_next < mintime)) mintime = elem->bt_next;
 	}
-	if (!*pp) return 0; // no timers, no dirty
+	if (!*pp) return 0; // no timers
 	return mintime;
 }

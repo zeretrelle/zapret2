@@ -302,3 +302,4 @@ v0.9.4.3
 1.0.1
 
 * install_easy: do not use apk in openwrt if it doesn't have db in /lib/apk/db
+* nfqws2: fix UAF if a timer is deleted in timer function
