@@ -2561,7 +2561,7 @@ int main(int argc, char **argv)
 		case IDX_LUA_GC:
 			{
 				int i = atoi(optarg);
-				if (params.lua_gc<0)
+				if (i<0)
 				{
 					DLOG_ERR("lua-gc must be >=0\n");
 					exit_clean(1);
